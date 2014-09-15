@@ -55,15 +55,38 @@
 
 
 
-// Using an object within an array
+// // Using an object within an array
 
-var victims = prompt("How many disaster victims do you want to enter?");
+// var victims = prompt("How many disaster victims do you want to enter?");
+
+// var allVictims = [];   // Initialize the array to store the objects
+
+// // for loop to go through how many victims were entered
+// for (var count = 0; count < victims; count++) {
+
+// 	// Create a new currentVictim, which will be pushed onto the array
+// 	var currentVictim = {
+// 		name: prompt("Victim name"),
+// 		phone: prompt("Enter phone"),
+// 		street: prompt("Enter street")
+// 	};
+
+// 	// Push the currentVictim onto the allVictims array
+// 	allVictims.push(currentVictim);
+
+// };
+
+// // Print entire array of allVictims
+// console.log(allVictims);
+
+
+
+
+// Bonus1: Adding a confirm statement (using object/array) - uses a do...while loop
 
 var allVictims = [];   // Initialize the array to store the objects
 
-// for loop to go through how many victims were entered
-for (var count = 0; count < victims; count++) {
-
+do {
 	// Create a new currentVictim, which will be pushed onto the array
 	var currentVictim = {
 		name: prompt("Victim name"),
@@ -74,13 +97,34 @@ for (var count = 0; count < victims; count++) {
 	// Push the currentVictim onto the allVictims array
 	allVictims.push(currentVictim);
 
-};
+	var r = confirm("Would you like to add another person?");
+} while (r);
 
 // Print entire array of allVictims
 console.log(allVictims);
 
 
 
+
+// Bonus2: Searching
+
+var victimInNeed = prompt("Search for a victim by name! Enter a person's name.");
+
+for (var count = 0; count < allVictims.length; count++) {
+	if (victimInNeed === allVictims[count].name) {
+		var victimStreet = allVictims[count].street;
+		alert(victimInNeed + " lives at " + victimStreet + " Street");
+	};
+};
+
+// Find out if George's street matches the other victims' streets
+alert("These are the volunteers that can help: ");
+
+for (var count = 0; count < allVictims.length; count++) {
+	if (allVictims[count].street === victimStreet) {
+		alert(allVictims[count].name);
+	};
+};
 
 
 
